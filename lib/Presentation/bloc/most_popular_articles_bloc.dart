@@ -1,4 +1,8 @@
+import 'dart:math';
+
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:nytimes_feed/Domain/Entities/article.dart';
 import 'package:nytimes_feed/Domain/Exceptions/customException.dart';
@@ -27,5 +31,17 @@ class MostPopularArticlesBloc
         },
       );
     });
+
+    on<ArticleFocused>(
+      (event, emit) {
+        state.focusedArticle.value = event.article;
+      },
+    );
+
+    on<ArticleUnfocused>(
+      (event, emit) {
+        state.focusedArticle.value = null;
+      },
+    );
   }
 }

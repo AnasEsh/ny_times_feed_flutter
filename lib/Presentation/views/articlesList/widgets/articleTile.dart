@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nytimes_feed/Domain/Entities/article.dart';
+import 'package:nytimes_feed/Presentation/bloc/most_popular_articles_bloc.dart';
 import 'package:nytimes_feed/Presentation/utils/dateTimeFormatters.dart';
 
 class ArticleTile extends StatelessWidget {
@@ -15,6 +17,7 @@ class ArticleTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      // selected: BlocProvider.of<MostPopularArticlesBloc>(context).state.focusedArticle.value==article,
       onTap: _onTapped,
       leading: CircleAvatar(child: Icon(Icons.article_rounded)),
       title: Text(

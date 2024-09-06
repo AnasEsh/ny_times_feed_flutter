@@ -1,7 +1,9 @@
 part of 'most_popular_articles_bloc.dart';
 
 @immutable
-sealed class MostPopularArticlesState {}
+sealed class MostPopularArticlesState {
+  ValueNotifier<Article?> focusedArticle = ValueNotifier(null);
+}
 
 final class MostPopularArticlesInitial extends MostPopularArticlesState {}
 
