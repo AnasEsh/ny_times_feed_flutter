@@ -4,16 +4,16 @@ class Article {
   int? id;
   int? assetId;
   String? source;
-  DateTime? publishedDate;
+  DateTime publishedDate;
   DateTime? updated;
   String? section;
   String? subsection;
   String? nytdsection;
   String? adxKeywords;
   String? column;
-  String? byline;
+  String byline;
   String? type;
-  String? title;
+  String title;
   String? abstractText;
   List<String>? desFacet;
   List<String>? orgFacet;
@@ -27,16 +27,16 @@ class Article {
     this.id,
     this.assetId,
     this.source,
-    this.publishedDate,
+    required this.publishedDate,
     this.updated,
     this.section,
     this.subsection,
     this.nytdsection,
     this.adxKeywords,
     this.column,
-    this.byline,
+    required this.byline,
     this.type,
-    this.title,
+    required this.title,
     this.abstractText,
     this.desFacet,
     this.orgFacet,
