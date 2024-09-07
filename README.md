@@ -1,10 +1,13 @@
-# nytimes_feed
+# nytimes_feed assesment
 
-A new Flutter project.
+Simple app built using clean architecture, responsive for different screens.
+
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
+# how to run it?
+  - clone the repo
+  - use your IDE with emulator/web to run the app
+  - or if u dont have IDE, cd into the project folder + ensure you have flutter SDK installed + run "flutter run"
 
 A few resources to get you started if this is your first Flutter project:
 
