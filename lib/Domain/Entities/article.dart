@@ -1,6 +1,6 @@
 class Article {
   String? uri;
-  String? url;
+  String url;
   int? id;
   int? assetId;
   String? source;
@@ -13,8 +13,9 @@ class Article {
   String? column;
   String byline;
   String? type;
+  String? imageUrl;
   String title;
-  String? abstractText;
+  String abstract;
   List<String>? desFacet;
   List<String>? orgFacet;
   List<String>? perFacet;
@@ -23,7 +24,7 @@ class Article {
 
   Article({
     this.uri,
-    this.url,
+    required this.url,
     this.id,
     this.assetId,
     this.source,
@@ -36,8 +37,9 @@ class Article {
     this.column,
     required this.byline,
     this.type,
+    this.imageUrl,
     required this.title,
-    this.abstractText,
+    required this.abstract,
     this.desFacet,
     this.orgFacet,
     this.perFacet,
@@ -46,6 +48,9 @@ class Article {
   });
 
   factory Article.fromJson(Map<String, dynamic> json) {
+    final List? media =
+        (json["media"] as List?)?.firstOrNull?['media-metadata'];
+    final url = media?.lastOrNull?['url'];
     return Article(
       uri: json['uri'],
       url: json['url'],
@@ -61,8 +66,9 @@ class Article {
       column: json['column'],
       byline: json['byline'],
       type: json['type'],
+      imageUrl: url,
       title: json['title'],
-      abstractText: json['abstract'],
+      abstract: json['abstract'],
       desFacet: List<String>.from(json['des_facet'] ?? []),
       orgFacet: List<String>.from(json['org_facet'] ?? []),
       perFacet: List<String>.from(json['per_facet'] ?? []),
